@@ -1,0 +1,30 @@
+<div class="container" ng-controller="ForumController">
+<table class="table table-bordered" align="center">
+
+<tr bgcolour="green">
+<td colspan="2"><center>Update Forum</center></td>
+</tr>
+
+<tr>
+<td>Forum Id</td>
+<td><input type="text" ng-model="foruminfo.forumId" readonly/></td>
+</tr>
+
+<tr>
+<td>Forum Name</td>
+<td><input type="text" ng-model="foruminfo.forumName"/></td>
+</tr>
+
+<tr>
+<td>Forum Content</td>
+<td><input type="text" ng-model="foruminfo.forumContent"/></td>
+</tr>
+
+<tr bgcolor="green">
+<td colspan="2"><center>
+<input type="button" value="Update Forum" ng-click="updateForum()" class="btn btn-success"/>
+</center>
+</td>
+</tr>
+</table>
+</div>

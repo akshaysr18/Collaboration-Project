@@ -1,0 +1,61 @@
+<html>
+<body id="Sign Up">
+<div class="container"align="center" ng-controller="UserController">
+<h1 class="form-heading">Sign Up</h1>
+
+ <form id="register">
+
+        <div class="from-group form-group-lg">
+
+	<input type="text" class="form-control" id="customerName" placeholder="Name"ng-model="User.customerName" required>
+</div>
+<br/>
+
+<div class="from-group form-group-lg">
+
+	<input type="emailId" class="form-control" id="emailId" placeholder="EmailId" ng-model="User.emailId" required>
+</div>
+       
+      <br/>
+       
+        <div class="from-group form-group-lg">
+
+
+            <input type="username" class="form-control" id="username" placeholder="Username" ng-model="User.username" required>
+
+        </div>
+
+<br/>
+
+
+        <div class="from-group form-group-lg">
+
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password"  ng-model="User.password" required>
+
+        </div>
+
+
+<br/>
+
+
+<div class="register_submit">
+
+<input type="submit" value="Sign Up" class="btn btn-info btn-block" ng-click="register()" />
+</div>
+<h3 class="login_or"> OR</h3>
+
+<div>
+<h3 class="login_or_another ">  Already have an Account ? <a href="#/login"> Login</a> </h3>
+</div>
+
+</form>
+	
+</body>
+</html>
+
+
+
+
+		
+		
+		

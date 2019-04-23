@@ -1,0 +1,119 @@
+<html>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+<style>
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 {
+  width: 100%;    
+  background-color: #f1f1c1;
+}
+</style>
+</head>
+<body>
+
+<table ng-controller="ForumController" border="2" align="center">
+   <div class="container">
+   <tr class="success">
+   <th>ForumId</th>
+   <th>Forum Name</th>
+   <th>Created By</th>
+   <th>Created On</th>
+   <th colspan="2">Operations</th>
+   </tr>
+   <tr ng-repeat="forum in forumdata">
+   
+   <td>{{forum.forumId}}</td>
+   <td>{{forum.forumName}}</td>
+   <td>{{forum.userName}}</td>
+   <td>{{forum.createDate}}</td>
+   <td >
+   <input type="button" value="showforum" ng-click="showforum(forum.forumId)" class="btn btn-success"/>
+<div ng-show="currentUser.username==forum.userName">
+   <input type="button" value="Delete" ng-click="deleteforum(forum.forumId)" class="btn btn-danger"/>
+   <input type="button" value="Edit" ng-click="editforum(forum.forumId)" class="btn btn-info"/>
+   </div>
+   
+   </td>
+   </tr>
+   </table>
+   
+       <div class="container">
+    <hr>
+    <div class="row">
+      <thead>
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Show Forum Details</h3>
+                <br/>
+                </div>
+                <div class="panel panel-success filterable">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{foruminfo.forumContent}}</h4>
+                <div class="pull-right">
+                </div>
+            </div>
+            </div>
+            </div>
+            
+                                
+                        
+                </thead>
+      
+                </div>
+                <br/>
+                <br/>
+       <div class="panel panel-danger filterable">
+            <div class="panel-heading">
+                
+    <center><h2>Add Your Forum </h2></center>
+    <div class="row">
+    <form ng-controller="ForumController">
+    
+        <div class="col-md-12 form-group">
+        <label>Forum Name</label>
+            <input type="text" name="forumName" ng-model="forum.forumName" class="form-control" placeholder="forumName" required>
+        </div>
+    
+    <div class="row">
+        <div class="col-md-12 form-group">
+           <label>Forum Content</label> 
+           <textarea rows="6" cols="20" name="forumContent" 
+           ng-model="forum.forumContent" placeholder="Enter The Text" class="form-control" required></textarea>
+        </div>
+    </div>
+   
+   
+
+    
+    <div class="row">
+        <div class="col-md-12 form-group">
+          <center>  <input type="submit" value="Add Forum" class="btn btn-success" ng-click="addforum()"  /></center>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+                
+     </div>
+     
+     </div>
+     </form>
+     </div>
+     </div>
+     </div>
+       
+  
+  
+   </body>
+   </html>
+   
+   
+   
+   

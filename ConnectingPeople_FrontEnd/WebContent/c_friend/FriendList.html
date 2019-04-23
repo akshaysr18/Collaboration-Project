@@ -1,0 +1,91 @@
+<div class="container" ng-controller="FriendController">
+<div style="background-color: green">
+<h1>Friend List</h1>
+</div>
+<div class="row text-center text-lg-left">
+<div ng-repeat="friend in showFriendList"
+	  class="col-lg-3 col-md-4 col-xs-1"> 
+	  <div ng-show="friend.username==currentUser.username">
+	  <img
+	  		src="http://localhost:8083/ConnectingPeople_MiddleWare/getImage/{{friend.friendname}}"
+	  		class="img-thumbnail" alt="Cinque Terre" width="100" height="100">
+	  		
+	  		<p>
+	  		<strong>{{friend.friendname}}</strong>
+	  		</p>
+	  	    <p><input type="button" value="UnFriend" ng-click="unfriend(friend.friendId)" class="btn btn-danger"/></p> 
+	  		
+	  		</div>
+	  		<div ng-show="friend.friendname==currentUser.username">
+	  		<img
+	  		src="http://localhost:8083/ConnectingPeople_MiddleWare/getImage/{{friend.username}}.jpg"
+	  		class="img-thumbnail"  alt="Cinque Terre" width="100" height="100">
+	  		<p>
+	  		<strong>{{friend.username}}</strong>
+	  		</p>
+	  		<p><input type="button" value="UnFriend" ng-click="unfriend(friend.friendId)" class="btn btn-danger"/></p> 
+	  		</div>
+</div>
+</div>
+
+<div style="background-color: red">
+<h2>Pending Friend Request</h2>
+<div ng-repeat="friend in ShowPendingFriendList"
+	  class="col-lg-3 col-md-4 col-xs-1"> 
+	  <div ng-show="friend.username==currentUser.username">
+	  <img
+	  		src="http://localhost:8083/ConnectingPeople_MiddleWare/getImage/{{friend.friendname}}"
+	  		class="img-thumbnail" alt="Cinque Terre" width="100" height="100">
+	  		
+	  		<p>
+	  		<strong>{{friend.friendname}}</strong>
+	  		</p>
+	  		         <p> 
+         <input type="button" value="Accept" ng-click="acceptFriend(friend.friendId)" class="btn btn-success"/>
+         <input type="button" value="Reject" ng-click="unfriend(friend.friendId)" class="btn btn-danger"/> 
+         </p>
+         
+	  		</div>
+	  		<div ng-show="friend.friendname==currentUser.username">
+	  		<img
+	  		src="http://localhost:8083/ConnectingPeople_MiddleWare/getImage/{{friend.username}}"
+	  		class="img-thumbnail" alt="Cinque Terre" width="50" height="50">
+	  		<p>
+	  		<strong>{{friend.username}}</strong>
+	  		</p>
+	  		         <p> 
+         <input type="button" value="Accept" ng-click="acceptFriend(friend.friendId)" class="btn btn-success"/>
+         <input type="button" value="Reject" ng-click="unfriend(friend.friendId)" class="btn btn-danger"/> 
+         </p>
+	  		
+	  		</div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div style="background-color: yellow">
+<h3>Friend Suggestion</h3>
+<div ng-repeat="friend in showSuggestedFriend"
+	  class="col-lg-3 col-md-4 col-xs-1"> 
+	  
+	  		<div>
+	  		<img
+	  		src="http://localhost:8083/ConnectingPeople_MiddleWare/getImage/{{friend.username}}"
+	  		class="img-thumbnail" alt="Cinque Terre" width="100" height="100">
+	  		<p>
+	  		<strong>{{friend.username}}</strong>
+	  		</p>
+          <p> <input type="button" value="Send Request" ng-click="sendFriendRequest(friend.username)" class="btn btn-success"/> </p>        	  
+	  		</div>
+</div>
+</div>
+
+</div>
+

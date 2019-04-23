@@ -1,0 +1,38 @@
+<div class="container" ng-controller="JobController">
+
+<table class="table table-bordered"  align="center">
+
+<tr class="active">
+     <td colspan="2"><center><b>Update Job</b></center></td>
+     
+ </tr>
+ 
+ <tr class="success">
+    <td><b>Job ID</b></td>
+    <td><input type="text" ng-model="jobdetail.jobId" readonly/></td>
+  </tr>
+  
+   <tr class="warning">
+      <td><b>Designation</b></td>
+      <td><input type="text" ng-model="jobdetail.desgination"/></td>
+  </tr>
+  
+  <tr class="info">
+      <td><b>Job Desc</b></td>
+      <td><input type="text" ng-model="jobdetail.jobDesc"/></td>
+  </tr>
+  
+  <tr class="primary">
+       <td><b>Qualification</b></td>
+       <td><input type="text" ng-model="jobdetail.qualification"/></td>
+   </tr>
+        
+   <tr>
+       <td colspan="2"><center><b><h4>
+       <input type="button" value="Update Job" ng-click="updatejob()" class="btn btn-success"/>
+       </h4></b></center>
+       </td>
+    </tr>
+
+</table>
+</div>

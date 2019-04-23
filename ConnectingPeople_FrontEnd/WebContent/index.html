@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ConnectingPeople</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-cookies.js"></script>
+<script src="RouteConfig.js"></script>
+<script src="c_user/UserController.js"></script>
+<script src="c_blog/BlogController.js"></script>
+<script src="c_blog/BlogCommentController.js"></script>
+<script src="c_forum/ForumController.js"></script>
+<script src="c_friend/FriendController.js"></script>
+<script src="c_chat/ChatController.js"></script>
+<script src="c_chat/ChatService.js"></script>
+<script src="c_job/JobController.js"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+
+</head>
+<body ng-app="myApp">
+
+<nav  class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a  class="navbar-brand" href="#">ConnectingPeople</a>
+    </div>
+    <ul  class="nav navbar-nav">
+     <li>
+        <a class="nav-link" href="#Home" ng-show="currentUser==undefined">Home</a>
+        <a class="nav-link" href="#/userhome" ng-hide="currentUser==undefined">Home</a>
+      </li>
+     
+      <li><a class="nav-link" href="#/login" ng-show="currentUser==undefined">Login</a></li>
+      <li><a class="nav-link" href="#/register" ng-show="currentUser==undefined">SignUp</a></li>
+      <li><a class="nav-link" href="#/aboutUs" ng-show="currentUser==undefined">About Us</a></li>
+      <li> <a class="nav-link" href="#/ProfilePicture" ng-hide="currentUser==undefined">Profile Picture</a></li>
+       <li> <a class="nav-link" href="#/FriendList" ng-hide="currentUser==undefined">Friend List</a></li>
+       <li> <a class="nav-link" href="#/chat" ng-hide="currentUser==undefined">Chat</a></li>
+       
+      
+      
+      
+        <li class="dropdown" ng-hide="currentUser==undefined">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Blog</a>
+      <ul class="dropdown-menu">
+       <li><a class="nav-link" href="#/addblog">AddBlog</a></li>
+       <li><a class="nav-link" href="#/showblog">ShowBlog</a></li>
+       <li ng-show="currentUser.role=='Admin'"><a class="nav-link" href="#/manageblog">Manage Blog</a>
+      </ul>
+      </li>     
+      
+          <li class="dropdown" ng-hide="currentUser==undefined">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Forum</a>
+      <ul class="dropdown-menu">
+    
+       <li><a class="nav-link" href="#/showforum">ShowForum</a></li>
+       <li ng-show="currentUser.role=='Admin'"><a class="nav-link" href="#/manageforum">Manage Forum</a>
+      </ul>
+      </li> 
+     
+      <li class="dropdown" ng-hide="currentUser==undefined">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job</a>
+      <ul class="dropdown-menu">
+       <li><a class="nav-link" href="#/showjobs">Show Jobs</a></li>
+       <li ng-show="currentUser.role=='Admin'"><a class="nav-link" href="#/managejobs">Manage Jobs</a>
+       </ul>
+       </li>
+               
+ 
+     
+    
+</ul>
+	<div class="nav navbar-right" ng-hide="currentUser==undefined">
+			<img src="http://localhost:8083/ConnectingPeople_MiddleWare/getImage/{{currentUser.username}}" width="40" height="40"/>
+			<font color="white">{{currentUser.customerName}}</font>
+			<form ng-controller="UserController">
+				<input type="button" value="Logout" class="btn btn-warning" ng-click="logout()"/>
+			</form>
+		</div>
+          
+     </ul>
+     </div>
+     </nav>
+         <div ng-view></div>   <br/>
+         <br/>
+        
+        
+          <div ng-show="currentUser==undefined" class="panel panel-success filterable">
+            <div class="panel-heading">
+               <center> <h1>Connecting People</h1></center>
+                <br/>
+                </div>
+        <br/>
+
+<center><img src="images\connecting people.jpg"></center>
+     </div>
+               
+
+</body>
+</html>

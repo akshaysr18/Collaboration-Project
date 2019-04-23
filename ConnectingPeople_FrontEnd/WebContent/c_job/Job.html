@@ -1,0 +1,22 @@
+<div class="container" ng-controller="JobController">
+
+<table class="table table-bordered" align="center">
+   
+   <tr class="Warning">
+   <th>Job ID</th>
+   <th>Designation</th>
+   <th>Job Desc</th>
+   <th>Qualification</th>
+   <th>Created On</th>
+   
+   </tr>
+   <tr ng-repeat="job in jobdata">
+   
+   <td>{{job.jobId}}</td>
+   <td>{{job.desgination}}</td>
+   <td>{{job.jobDesc}}</td>
+    <td>{{job.qualification}}</td>
+   <td>{{job.LastDate}}</td>
+   </tr>
+</table>
+</div>

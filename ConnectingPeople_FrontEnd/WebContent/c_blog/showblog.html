@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 {
+  width: 100%;    
+  background-color: #f1f1c1;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<table ng-controller="BlogController" border="2" align="center">
+   
+   <tr class="success">
+   <th>BlogId</th>
+   <th>Blog Name</th>
+   <th>Created By</th>
+   <th>Created On</th>
+   <th colspan="2">Operations</th>
+   </tr>
+   <tr ng-repeat="blog in blogdata">
+   
+   <td>{{blog.blogId}}</td>
+   <td>{{blog.blogName}}</td>
+   <td>{{blog.username}}</td>
+   <td>{{blog.createDate}}</td>
+   <td >
+   <input type="button" value="showblog" ng-click="showblog(blog.blogId)" class="btn btn-success"/>
+   <div ng-hide="currentUser.username==blog.username">
+   
+   <button type="button" ng-click="incrementlikes(blog.blogId)" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-thumbs-up"></span> Like
+        </button>
+   <button type="button" ng-click="incrementdislikes(blog.blogId)" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-thumbs-down"></span> DisLike
+        </button>   </div>
+        
+   <div ng-show="currentUser.username==blog.username">
+   <input type="button" value="Delete" ng-click="deleteblog(blog.blogId)" class="btn btn-danger"/>
+   <input type="button" value="Edit" ng-click="editblog(blog.blogId)" class="btn btn-info"/>
+   </div>
+   </td>
+   </tr>
+   
+   </table>
+   </div>
+   </body>
+   </html>

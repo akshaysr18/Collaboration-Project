@@ -1,0 +1,30 @@
+<div class="container" ng-controller="BlogController">
+<table class="table table-bordered" align="center">
+
+<tr bgcolour="green">
+<td colspan="2"><center>Update Blog</center></td>
+</tr>
+
+<tr>
+<td>BlogId</td>
+<td><input type="text" ng-model="bloginfo.blogId" readonly/></td>
+</tr>
+
+<tr>
+<td>BlogName</td>
+<td><input type="text" ng-model="bloginfo.blogName"/></td>
+</tr>
+
+<tr>
+<td>BlogContent</td>
+<td><input type="text" ng-model="bloginfo.blogContent"/></td>
+</tr>
+
+<tr bgcolor="green">
+<td colspan="2"><center>
+<input type="button" value="Update Blog" ng-click="updateBlog()" class="btn btn-success"/>
+</center>
+</td>
+</tr>
+</table>
+</div>

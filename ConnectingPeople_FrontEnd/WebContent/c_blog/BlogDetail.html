@@ -1,0 +1,37 @@
+<div class="container" ng-controller="BlogCommentController">
+ 
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><left>{{bloginfo.blogName}}</left></button>
+ &nbsp;&nbsp;
+        &nbsp;&nbsp;{{bloginfo.likes}}
+        
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;{{bloginfo.dislikes}}
+ 
+ <div id="demo" >
+ 
+ <h4>{{bloginfo.blogContent}}</h4>
+ 
+ </div>
+ 
+ 
+ <div ng-repeat="blogComment in listBlogComments">
+  <h2><b><i>Comments</i></b></h2>
+  <h3>{{blogComment.username}} - {{blogComment.commentDate}} - {{blogComment.commentText}}</h3>
+  
+ <div ng-show="currentUser.username==blogComment.username">
+   <input type="button" value="Delete" ng-click="deleteblogComment(blogComment.commentId)" class="btn btn-danger"/>
+   </div>
+ </div>
+ <br>
+ <br>
+ 
+ <div ng-hide="currentUser.username==bloginfo.username">
+    
+   <input type="text" ng-model="blogComment.commentText" name="Comment Text">
+   <input type="button" value="Add Comment" ng-click="addBlogComment()"/>
+   
+    
+   </td>
+   </tr>
+ </div>
+ </div>
